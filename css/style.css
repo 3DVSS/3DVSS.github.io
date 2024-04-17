@@ -44,7 +44,8 @@ h6 {
   margin: 0 0 20px 0;
   padding: 0;
   /*color: #0e1b4d;*/
-  color: rgba(0, 96, 179, 0.8);
+  /*color: rgba(0, 96, 179, 0.8);*/
+  color: rgba(31, 32, 76, 0.9);
 }
 
 .main-page {
@@ -159,7 +160,8 @@ h6 {
 #header.header-scrolled,
 #header.header-fixed {
   /*background: rgba(6, 12, 34, 0.98);*/
-  background: rgba(0,0,0, 0.98);
+  /*background: rgba(0,0,0, 0.98);*/
+  background: rgba(31, 32, 76, 1);
   height: 70px;
   padding: 15px 0;
   transition: all 0.5s;
@@ -447,7 +449,8 @@ h6 {
   left: 0;
   position: fixed;
   /*background: rgba(6, 12, 34, 0.8);*/
-  background: rgba(0, 96, 179, 0.8);
+  /*background: rgba(0, 96, 179, 0.8);*/
+  background: rgba(31, 32, 76, 0.9);
   display: none;
 }
 
@@ -480,9 +483,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro:before {
   content: "";
-  /* background: rgba(6, 12, 34, 0.8); */
+  /* background: rgba(6, 12, 34, 0.8); 
   background: #0056b3;
-  background: rgba(0, 96, 179, 0.9);
+  /*background: rgba(0, 96, 179, 0.9);*/
+  background: rgba(31, 32, 76, 0.9);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -816,7 +820,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 #schedule .nav-pills a {
   font-weight: 600;
   /*background-color: #0e1b4d;*/
-  color: rgba(0, 96, 179, 0.8);
+  /*color: rgba(0, 96, 179, 0.8);*/
+  color: rgba(31, 32, 76, 0.9);
   
   text-align: center;
 }
@@ -1398,7 +1403,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer {
   /*background: #101522;*/
-  background: rgba(0,0,0, 0.98);
+  /*background: rgba(0,0,0, 0.98);*/
+  background: rgba(31, 32, 76, 1);
   padding: 0 0 25px 0;
   color: #eee;
   font-size: 14px;
@@ -1561,8 +1567,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #contact .contact-phone {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    /*border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;*/
   }
 }
 
