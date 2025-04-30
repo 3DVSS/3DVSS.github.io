@@ -147,6 +147,11 @@ h2 { font-weight: 700; }
   box-shadow: 0 2px 10px var(--color-shadow-medium);
 }
 
+
+.text_highlight{
+  color: var(--color-primary)
+}
+
 .back-to-top i {
   font-size: 20px;
   padding-top: 10px;
