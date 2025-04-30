@@ -1,7 +1,7 @@
 /*
   Theme Name: Custom Pleasant & Animated Theme v6 (Blurred Background)
   Based on: TheEvent (BootstrapMade.com)
-  Author: AI Assistant
+  Author: AI Assistant / Modifications by User
   License: Based on original theme license, modify as needed.
 */
 
@@ -9,40 +9,36 @@
 # Variables (Black and Red Scheme)
 --------------------------------------------------------------*/
 :root {
-    /*--color-primary: #E53935; /* Bold Red for main actions/highlights */
-    /*--color-secondary: #B71C1C; /* Darker Red, perhaps for secondary elements or borders */
-    /*--color-accent: #FF5252; /* Brighter Red, for stronger emphasis/buttons */
-    --color-accent: #f58a7b; /* Brighter Red, for stronger emphasis/buttons */
-    --color-text-dark: #E0E0E0; /* Light Gray text on dark backgrounds */
-    --color-text-muted: #BDBDBD; /* Slightly darker Light Gray for muted text */
-    --color-background-light: #303030; /* Very Dark Gray / Near Black main background */
-    --color-background-section: #414141; /* Slightly Lighter Dark Gray for sections */
-    --color-border-light: rgba(255, 255, 255, 0.1); /* Subtle border on dark */
-    --color-white: #FFFFFF; /* Pure white */
-    
-    --color-primary: #f6aca2;
-    --color-secondary: #f49b90;
-    --color-tertiary: #f28b7d;
-    --color-quaternary: #f07a6a;
-    --color-quinary: #ee6352;
+  /* Color Palette - Adjust as desired */
+  --color-primary: #f6aca2; /* Light Pink/Coral - Used for accents, highlights, active states */
+  --color-secondary: #f49b90; /* Slightly darker shade */
+  --color-tertiary: #f28b7d; /* Medium shade */
+  --color-quaternary: #f07a6a; /* Darker shade */
+  --color-quinary: #ee6352; /* Darkest shade / Strong accent */
+  --color-accent: #f58a7b; /* A distinct accent color */
 
-    /* Shadows on dark backgrounds often look different. */
-    --color-shadow-light: rgba(0, 0, 0, 0.2); /* Adjusted opacity for dark background */
-    --color-shadow-medium: rgba(0, 0, 0, 0.3);
-    --color-shadow-strong: rgba(0, 0, 0, 0.45);
+  /* Backgrounds and Text */
+  --color-background-light: #303030; /* Very Dark Gray / Near Black main background */
+  --color-background-section: #414141; /* Slightly Lighter Dark Gray for sections */
+  --color-background-section2: #2a2a2a; /* Even darker for contrast like FAQ, Contact */
+  --color-text-dark: #E0E0E0; /* Light Gray text on dark backgrounds */
+  --color-text-muted: #BDBDBD; /* Slightly darker Light Gray for muted text */
+  --color-white: #FFFFFF; /* Pure white */
 
-    /* Variables for the blurred background color/overlay and intensity */
-    --color-blurred-background-overlay: rgba(255, 255, 255, 0.05); /* Subtle light overlay to blur */
-    --color-blurred-intensity: 10px; /* How much blur to apply */
+  /* Borders and Shadows */
+  --color-border-light: rgba(255, 255, 255, 0.1); /* Subtle border on dark */
+  --color-shadow-light: rgba(0, 0, 0, 0.2);
+  --color-shadow-medium: rgba(0, 0, 0, 0.3);
+  --color-shadow-strong: rgba(0, 0, 0, 0.45);
 
+  /* Fonts */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Lato', sans-serif;
 
-    --font-heading: 'Poppins', sans-serif; /* Modern Sans-serif Heading Font */
-    --font-body: 'Lato', sans-serif; /* Clean Sans-serif Body Font */
-
-    /* Define speaker image sizes */
-    --speaker-img-main-width: 200px;
-    --speaker-img-main-height: 250px;
-    --speaker-img-schedule-size: 50px;
+  /* Define speaker image sizes */
+  --speaker-img-main-width: 200px;
+  --speaker-img-main-height: 250px; /* Aspect ratio approx 4:5 */
+  --speaker-img-schedule-size: 50px; /* For small icons in schedule */
 }
 
 
@@ -51,287 +47,268 @@
 --------------------------------------------------------------*/
 
 *, *::before, *::after {
-    box-sizing: border-box; /* Crucial for preventing overflow from padding/borders */
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--color-background-light); /* Dark background */
-    color: var(--color-text-dark); /* Light text */
-    font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden; /* Hide horizontal overflow */
-    -webkit-font-smoothing: antialiased; /* Enhance font rendering */
-    -moz-osx-font-smoothing: grayscale;
-    position: relative; /* Needed for back-to-top button positioning */
+  background: var(--color-background-light);
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  position: relative; /* Needed for back-to-top button positioning */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-    color: var(--color-accent); /* Bright Red for links */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition + animation */
-    text-decoration: none; /* Default to no underline */
+  color: var(--color-primary); /* Use primary accent for links */
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: var(--color-white); /* White on hover */
-    outline: none;
-    text-decoration: none;
-    transform: translateY(-1px); /* Subtle lift on hover */
+  color: var(--color-white);
+  outline: none;
+  text-decoration: none;
+  /* transform: translateY(-1px); */ /* Subtle lift can be distracting */
 }
 
 p {
-    padding: 0;
-    margin: 0 0 20px 0; /* Adjusted margin */
-    color: var(--color-text-muted); /* Muted light text */
-    font-size: 15px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading);
-    font-weight: 600; /* Slightly heavier */
-    margin: 0 0 15px 0; /* Adjusted margin */
-    padding: 0;
-    color: var(--color-text-dark); /* Light text for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  padding: 0;
+  color: var(--color-text-dark);
 }
-h1 { font-weight: 700; }
-h2 { font-weight: 700; }
+h1, h2 { font-weight: 700; }
+h3 { font-weight: 600; }
 
 
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
 .main-page {
-    margin-top: 70px; /* Default margin-top */
+  margin-top: 70px; /* Default margin-top for fixed header */
 }
 
 .wow {
-  visibility: hidden; /* Keep original WOW.js behavior */
+visibility: hidden;
 }
 
-/* Prelaoder */
-/* Adjust preloader.svg if its colors don't work on a dark background */
+/* Preloader */
 #preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9999; /* Higher z-index */
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: var(--color-background-light) url("../img/preloader.svg") no-repeat center center;
-  background-size: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 9999;
+width: 100%;
+height: 100%;
+overflow: visible;
+background: var(--color-background-light) url("../img/preloader.svg") no-repeat center center;
+background-size: 70px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 
 /* Back to top button */
-
 .back-to-top {
-  position: fixed;
-  display: none;
-  background: var(--color-primary); /* Red */
-  color: var(--color-white);
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  border-radius: 50%;
-  right: 20px;
-  bottom: 20px;
-  transition: background 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-  z-index: 99;
-  box-shadow: 0 2px 10px var(--color-shadow-medium);
+position: fixed;
+display: none; /* Hidden by default, shown by JS */
+background: var(--color-primary);
+color: var(--color-white);
+width: 40px;
+height: 40px;
+text-align: center;
+border-radius: 50%;
+right: 20px;
+bottom: 20px;
+transition: background 0.3s ease, opacity 0.5s ease, visibility 0.5s ease, transform 0.3s ease;
+z-index: 99;
+box-shadow: 0 2px 10px var(--color-shadow-medium);
+opacity: 0;
+visibility: hidden;
 }
-
-
-.text_highlight{
-  color: var(--color-primary)
+.back-to-top.active { /* Class added by JS when scrolling */
+  opacity: 1;
+  visibility: visible;
 }
 
 .back-to-top i {
-  font-size: 20px;
-  padding-top: 10px;
+font-size: 20px;
+line-height: 40px; /* Vertically center icon */
 }
 
 .back-to-top:focus {
-  background: var(--color-accent);
-  color: var(--color-white);
-  outline: none;
+background: var(--color-accent);
+color: var(--color-white);
+outline: none;
 }
 
 .back-to-top:hover {
-  background: var(--color-accent);
-  color: var(--color-white);
-  transform: translateY(-3px);
-   box-shadow: 0 4px 12px var(--color-shadow-strong);
+background: var(--color-accent);
+color: var(--color-white);
+transform: translateY(-3px);
+box-shadow: 0 4px 12px var(--color-shadow-strong);
 }
 
-/* Sections Header
---------------------------------*/
+/* Text Highlight Utility */
+.text_highlight {
+color: var(--color-primary);
+font-weight: bold;
+}
 
+/* Section Header */
 .section-header {
-  margin-bottom: 50px;
-  position: relative;
-  padding-bottom: 20px;
+margin-bottom: 50px;
+position: relative;
+padding-bottom: 20px;
 }
 
 .section-header::before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 4px;
-  background: var(--color-primary); /* Primary Red underline */
-  bottom: 0;
-  left: calc(50% - 25px);
-  border-radius: 2px;
+content: '';
+position: absolute;
+display: block;
+width: 50px;
+height: 4px;
+background: var(--color-primary);
+bottom: 0;
+left: 50%;
+transform: translateX(-50%); /* Center align */
+border-radius: 2px;
 }
 
 .section-header h2 {
-  font-size: 32px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--color-text-dark); /* Light text */
-  letter-spacing: 0.8px;
+font-size: 32px;
+text-transform: uppercase;
+text-align: center;
+font-weight: 700;
+margin-bottom: 8px;
+color: var(--color-text-dark);
+letter-spacing: 0.8px;
 }
 
 .section-header p {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--color-text-muted);
+text-align: center;
+padding: 0;
+margin: 0;
+font-size: 16px;
+font-weight: 400;
+color: var(--color-text-muted);
 }
 
+/* Section Backgrounds */
 .section-with-bg {
-  background-color: var(--color-background-section); /* Slightly lighter dark background */
-  padding: 60px 0;
+background-color: var(--color-background-section);
+padding: 60px 0;
 }
 .section-with-bg2 {
-    background-color: var(--color-background-light); /* Slightly lighter dark background */
-    padding: 60px 0;
-  }
+  background-color: var(--color-background-section2); /* Use the darker contrast bg */
+  padding: 60px 0;
+}
+
 
 /*--------------------------------------------------------------
-# Header (Refined - Final version for Black/Red)
+# Header
 --------------------------------------------------------------*/
-
 #header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 997;
-
-    background: var(--color-background-section); /* Dark header */
-    box-shadow: 0 2px 10px var(--color-shadow-medium);
-    transition: all 0.5s ease-in-out;
-
-    height: 70px;
-    padding: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 997;
+  background: var(--color-background-section);
+  box-shadow: 0 2px 10px var(--color-shadow-medium);
+  transition: all 0.3s ease-in-out; /* Smoother transition */
+  height: 70px;
+  padding: 0;
 }
 
-/* Use Flexbox on the inner container to align items */
 #header > .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-     padding-left: 15px;
-     padding-right: 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevent wrapping on small screens */
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1140px; /* Standard container max-width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Style for the header when scrolled */
-#header.header-scrolled,
-#header.header-fixed {
-    background: var(--color-background-light); /* Darker when scrolled */
-    box-shadow: 0 2px 15px var(--color-shadow-strong);
-    height: 60px;
-    padding: 0;
-    transition: all 0.3s ease-in-out;
+/* Header scrolled state */
+#header.header-scrolled {
+  background: var(--color-background-light);
+  box-shadow: 0 2px 15px var(--color-shadow-strong);
+  height: 60px;
 }
 
-/* Ensure the logo and nav containers don't have floats */
-#header #logo,
-#nav-menu-container {
-    float: none;
-    flex-shrink: 0;
-}
+/* Logo */
 #header #logo {
-    max-width: calc(100% - 50px); /* Adjust for mobile toggle */
-     margin-right: auto;
+  flex-shrink: 0; /* Don't shrink logo */
+  margin-right: auto; /* Push nav to the right */
+  overflow: hidden; /* Hide overflow */
 }
 
-@media (min-width: 992px) { /* Standard desktop breakpoint */
-   #header #logo {
-        max-width: 50%;
-        margin-right: 15px;
-   }
-}
-
-
-#header #logo span {
-     display: flex;
-     align-items: center;
-     min-width: 0;
+#header #logo span { /* Container for image and text */
+   display: flex;
+   align-items: center;
 }
 
 #header #logo img {
-     vertical-align: middle;
-     max-height: 32px;
-     transition: max-height 0.3s ease;
-     margin-right: 10px;
-     flex-shrink: 0;
-     /* Adjust image filter for dark background */
-     filter: brightness(1.2) grayscale(20%); /* Make logo pop on dark background */
+   vertical-align: middle;
+   max-height: 32px;
+   transition: max-height 0.3s ease;
+   margin-right: 10px;
+   /* Make logo slightly brighter on dark background */
+   /* filter: brightness(1.1); */
 }
 #header.header-scrolled #logo img {
-     max-height: 28px;
+   max-height: 28px;
 }
 
 #header #logo h1 {
-     line-height: 1;
-     vertical-align: middle;
-     font-size: 20px;
-     font-weight: 700;
-     margin-bottom: 0;
-     flex-grow: 1;
-     min-width: 0;
-     white-space: nowrap;
-     overflow: hidden;
-     text-overflow: ellipsis;
-     align-self: center;
-     color: var(--color-text-dark); /* Light text */
-}
-@media (max-width: 575.98px) {
-    #header #logo h1 {
-        font-size: 18px;
-        letter-spacing: 0.5px;
-    }
-     #header #logo {
-          max-width: calc(100% - 50px);
-     }
+   line-height: 1;
+   vertical-align: middle;
+   font-size: 20px;
+   font-weight: 700;
+   margin-bottom: 0;
+   white-space: nowrap; /* Prevent wrapping */
+   overflow: hidden;
+   text-overflow: ellipsis;
+   color: var(--color-text-dark);
 }
 
-#header #logo h1 a {
-     color: var(--color-text-dark); /* Link in h1 uses light text */
-     text-decoration: none;
-}
+#header #logo h1 a,
 #header #logo h1 a:hover {
-     color: var(--color-primary); /* Red on hover */
-}
-#header #logo h1 span {
-    color: var(--color-primary); /* Primary red accent */
+   color: var(--color-text-dark);
+   text-decoration: none;
 }
 
+#header #logo h1 span {
+  color: var(--color-primary); /* Accent color for year */
+  display: inline; /* Keep span inline */
+  margin-left: 2px;
+}
+
+/* Adjust logo text size on smaller screens */
+@media (max-width: 767px) {
+  #header #logo h1 {
+      font-size: 18px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -512,533 +489,420 @@ h2 { font-weight: 700; }
   border-left: 3px solid var(--color-primary); /* Primary Red accent border */
 }
 
-/* Mobile Nav Toggle */
-
+/* Mobile Navigation */
 #mobile-nav-toggle {
-  position: fixed;
-  right: 15px;
-  top: 18px; /* Default top for 70px header */
-  z-index: 9999;
-  margin: 0;
-  border: 0;
-  background: none;
-  font-size: 24px;
-  display: none; /* Hidden by default */
-  transition: all 0.4s ease;
-  outline: none;
-  cursor: pointer;
-  color: var(--color-text-dark); /* Light toggle color */
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-}
-/* Adjust toggle position when header scrolls */
-#header.header-scrolled #mobile-nav-toggle {
-     top: 13px; /* Center in 60px header */
+display: none; /* Hidden on desktop */
+position: fixed;
+right: 15px;
+top: 18px; /* Adjust top based on header height */
+z-index: 999;
+border: 0;
+background: none;
+font-size: 24px;
+transition: all 0.4s;
+outline: none;
+cursor: pointer;
+color: var(--color-text-dark);
+padding: 5px;
 }
 
-/* Mobile Nav Styling (Padding adjusted based on header height) */
+#header.header-scrolled #mobile-nav-toggle {
+  top: 13px; /* Adjust for scrolled header */
+}
 
 #mobile-nav {
-  position: fixed;
-  top: 0;
-  padding-top: 60px; /* Matches scrolled/mobile header height */
-  bottom: 0;
-  z-index: 9998;
-  background: var(--color-background-section); /* Dark background */
-  left: -260px;
-  width: 260px;
-  overflow-y: auto;
-  transition: 0.4s ease-in-out;
-  box-shadow: 2px 0 15px var(--color-shadow-medium);
+position: fixed;
+top: 0;
+padding-top: 60px; /* Match scrolled/mobile header height */
+bottom: 0;
+z-index: 998; /* Below toggle */
+background: var(--color-background-section);
+left: -260px; /* Start off-screen */
+width: 260px;
+overflow-y: auto;
+transition: 0.4s ease-in-out;
+box-shadow: 2px 0 15px var(--color-shadow-medium);
 }
 
 #mobile-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+padding: 10px 0;
+margin: 0;
+list-style: none;
 }
 
 #mobile-nav ul li {
-  position: relative;
+position: relative;
 }
 
 #mobile-nav ul li a {
-  color: var(--color-text-dark); /* Light text */
-  font-size: 16px;
-  overflow: hidden;
-  padding: 12px 20px;
-  position: relative;
-  text-decoration: none;
-  width: 100%;
-  display: block;
-  outline: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-  transition: color 0.3s ease, background-color 0.3s ease;
+color: var(--color-text-dark);
+font-size: 15px;
+overflow: hidden;
+padding: 10px 20px;
+position: relative;
+text-decoration: none;
+width: 100%;
+display: block;
+outline: none;
+border-bottom: 1px solid var(--color-border-light);
+transition: color 0.3s ease, background-color 0.3s ease;
 }
-
 #mobile-nav ul li:last-child a {
   border-bottom: none;
 }
 
 #mobile-nav ul li a:hover {
-  color: var(--color-primary); /* Primary Red on hover */
-  background-color: var(--color-background-light); /* Darker background on hover */
+color: var(--color-primary);
+background-color: var(--color-background-light);
 }
 
-#mobile-nav ul li li {
-  padding-left: 20px;
+#mobile-nav ul li.menu-active > a {
+  color: var(--color-primary);
+  background-color: var(--color-background-light);
 }
 
 #mobile-nav ul .menu-has-children i {
-  position: absolute;
-  right: 10px;
-  z-index: 99;
-  padding: 10px;
-  cursor: pointer;
-  color: var(--color-text-muted); /* Muted light text */
-  transition: transform 0.3s ease;
+position: absolute;
+right: 15px;
+top: 50%;
+transform: translateY(-50%);
+padding: 5px;
+cursor: pointer;
+color: var(--color-text-muted);
+z-index: 99;
+transition: transform 0.3s ease;
 }
-
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: var(--color-primary); /* Primary Red when open */
-  transform: rotate(180deg);
+color: var(--color-primary);
+transform: translateY(-50%) rotate(180deg);
 }
 
-#mobile-nav ul .menu-item-active {
-  color: var(--color-primary); /* Primary Red */
+#mobile-nav ul li li {
+padding-left: 20px; /* Indent sub-menu items */
+}
+#mobile-nav ul li li a {
+  font-size: 14px;
+  padding: 8px 20px;
 }
 
-#mobile-body-overly {
-  width: 100%;
-  height: 100%;
-  z-index: 9997;
-  top: 0;
-  left: 0;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7); /* Darker overlay */
+
+#mobile-body-overlay {
+width: 100%;
+height: 100%;
+z-index: 997; /* Below mobile nav */
+top: 0;
+left: 0;
+position: fixed;
+background: rgba(0, 0, 0, 0.7);
+display: none; /* Hidden by default */
+}
+
+/* Mobile Nav Active State */
+body.mobile-nav-active {
+overflow: hidden; /* Prevent scrolling background */
+}
+body.mobile-nav-active #mobile-nav {
+left: 0; /* Slide in */
+}
+body.mobile-nav-active #mobile-nav-toggle {
+color: var(--color-primary); /* Change toggle color when active */
+}
+body.mobile-nav-active #mobile-body-overlay {
+display: block; /* Show overlay */
+}
+
+/* Show mobile toggle and hide desktop nav on small screens */
+@media (max-width: 991px) {
+#nav-menu-container {
   display: none;
 }
-
-/* Mobile Nav body classes */
-
-body.mobile-nav-active {
-  overflow: hidden;
+#mobile-nav-toggle {
+  display: inline-block; /* Use inline-block or block */
+}
+ #header > .container {
+   justify-content: flex-start; /* Align logo to left */
+ }
+ #header #logo {
+   margin-right: 0; /* Remove auto margin */
+ }
 }
 
-body.mobile-nav-active #mobile-nav {
-  left: 0;
+/* Adjust main content margin for fixed header */
+@media (min-width: 992px) {
+  .main-page {
+      margin-top: 70px; /* Height of initial header */
+  }
+  #header.header-scrolled + .main-page {
+      margin-top: 60px; /* Height of scrolled header */
+  }
 }
-
-body.mobile-nav-active #mobile-nav-toggle {
-  color: var(--color-text-dark);
+@media (max-width: 991px) {
+   .main-page {
+       margin-top: 60px; /* Consistent margin for mobile view */
+   }
 }
-
-/* Ensure main content is pushed down by the fixed header */
-.main-page {
-    margin-top: 70px; /* Initial header height */
-}
-
 
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
-
 #intro {
-  width: 100%;
-  height: 70vh;
-  background: url(../img/home-dark.jpg) center center no-repeat; /* Use a dark background image */
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+width: 100%;
+height: 75vh; /* Adjust height as needed */
+min-height: 400px;
+background: url(../img/home-dark.jpg) center center no-repeat;
+background-size: cover;
+overflow: hidden;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: var(--color-white);
 }
 
-#intro:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.7); /* Darker overlay */
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
+#intro::before {
+content: "";
+background: rgba(0, 0, 0, 0.6); /* Slightly adjust overlay */
+position: absolute;
+inset: 0; /* Shortcut for top, right, bottom, left = 0 */
+z-index: 1;
 }
 
 #intro .intro-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 15px;
+position: relative;
+z-index: 2;
+padding: 0 15px;
 }
 
 #intro h1 {
-  color: var(--color-white); /* White text */
-  font-family: var(--font-heading);
-  font-size: 48px;
-  font-weight: 700;
-  text-transform: uppercase; /* Keep uppercase for impact */
-  margin-bottom: 15px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+color: var(--color-white);
+font-size: clamp(28px, 6vw, 48px); /* Responsive font size */
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 15px;
+text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-#intro h1 span {
-  color: var(--color-primary); /* Primary Red accent */
+.text-shadows {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* font-size: calc(2rem + 5vw); */
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  animation: shadows 1.2s ease-in infinite;
+  /* animation-timing-function: cubic-bezier(0.25,0.1,0.25,1) infinite; */
+  letter-spacing: 0.4rem;
 }
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  /* 10% {
+    transform: translate(-3px, -3px);
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    transform: translate(-6px, -6px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    transform: translate(-9px, -9px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  } */
+  /* 50% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  } */
+  50% {
+      transform: translate(-8px, -8px);
+      text-shadow: 2px 2px 0 var(--color-secondary),
+        4px 4px 0 var(--color-tertiary), 6px 6px var(--color-quaternary),
+        8px 8px 0 var(--color-quinary);
+    }
+  /* 60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  } */
+  100% {
+    text-shadow: none;
+  }
+}
+
 
 #intro p {
-  color: var(--color-text-dark); /* Light Gray text */
-  font-weight: 400;
-  font-size: 18px;
-  margin-bottom: 30px;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+color: var(--color-text-dark);
+font-weight: 400;
+font-size: clamp(16px, 3vw, 18px); /* Responsive font size */
+margin-bottom: 30px;
+text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+#intro p .text_highlight {
+  font-weight: 700; /* Make highlighted date bold */
 }
 
+/* Optional Play Button Styling */
 #intro .play-btn {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(229, 57, 53, 0.3) 52%); /* Primary Red gradient */
-  border-radius: 50%;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-  box-shadow: 0 0 10px rgba(229, 57, 53, 0.6); /* Primary Red glow */
-  transition: all 0.4s ease;
+  /* Styles from original CSS if needed */
 }
 
-#intro .play-btn::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-left: 14px solid var(--color-white); /* White triangle */
-  z-index: 100;
-  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-#intro .play-btn:before {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  animation-delay: 0s;
-  animation: pulsate-btn 2s infinite steps forwards;
-  opacity: 1;
-  border-radius: 50%;
-  border: 2px solid rgba(229, 57, 53, 0.4); /* Primary Red pulse border */
-  top: -12.5%;
-  left: -12.5%;
-  background: rgba(0, 0, 0, 0);
-}
-
-#intro .play-btn:hover::after {
-  border-left: 14px solid var(--color-accent); /* Brighter Red triangle on hover */
-  transform: scale(20) translateX(-2%);
-}
-
+/* Optional About Button Styling */
 #intro .about-btn {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  display: inline-block;
-  padding: 10px 25px;
-  border-radius: 50px;
-  transition: 0.3s ease, transform 0.3s ease;
-  line-height: 1;
-  margin: 10px;
-  color: var(--color-white);
-  animation-delay: 0.8s;
-  border: 2px solid var(--color-primary);
-  background: var(--color-primary); /* Primary Red background */
-  text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4);
+  /* Styles from original CSS if needed */
+   font-family: var(--font-body);
+   font-weight: 500;
+   font-size: 14px;
+   letter-spacing: 0.5px;
+   display: inline-block;
+   padding: 10px 25px;
+   border-radius: 50px;
+   transition: 0.3s ease, transform 0.3s ease;
+   margin-top: 10px;
+   color: var(--color-white);
+   border: 2px solid var(--color-primary);
+   background: var(--color-primary);
+   text-transform: uppercase;
+   box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.4); /* Needs --color-primary-rgb if using rgba */
 }
-
 #intro .about-btn:hover {
-  background: var(--color-accent); /* Brighter Red on hover */
+  background: var(--color-accent);
   border-color: var(--color-accent);
-  color: var(--color-white);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(255, 82, 82, 0.4);
-}
-
-@-webkit-keyframes pulsate-btn {
-  0% {
-    -webkit-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
-    opacity: 0;
-  }
-}
-
-@keyframes pulsate-btn {
-  0% {
-    -webkit-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
-    opacity: 0;
-  }
-}
-
-
-/*--------------------------------------------------------------
-# About Section (Assuming it uses section-with-bg structure)
---------------------------------------------------------------*/
-
-#about {
-  /* If it has its own background image, update it to a dark one */
-  /* background: url("../img/about-bg-dark.jpg") center center no-repeat; */
-  /* Existing size, overflow, position, color, padding */
-  color: var(--color-text-dark); /* Light text */
-}
-/* If #about is section-with-bg, the background is handled there */
-
-#about:before {
-  /* If it has its own overlay */
-  /* content: ""; */
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-  /* Existing position, z-index */
-}
-/* Container z-index remains */
-
-#about h2 {
-  /* Existing size, weight, margin */
-  color: var(--color-text-dark); /* Light text */
-}
-
-#about h3 {
-  /* Existing size, weight, transform, margin, font-family */
-  color: var(--color-primary); /* Primary Red */
-}
-
-#about p {
-  /* Existing size, margin */
-  color: var(--color-text-muted); /* Muted light text */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.4); /* Needs --color-accent-rgb */
 }
 
 /*--------------------------------------------------------------
-# Sponsors Section (Using generic sponsor-img class)
+# Speakers / Team Section (Combined Styling)
 --------------------------------------------------------------*/
-
-.sponsor-img {
-   height: 80px;
-   margin: 20px auto 40px auto;
-   object-fit: contain;
-   /* Adjust filter for dark background - make them visible light/white */
-   filter: brightness(2) grayscale(1) contrast(1.5) opacity(0.7);
-   transition: all 0.4s ease;
-   display: block;
-}
-.sponsor-img:hover {
-  filter: none; /* Show original color on hover */
-  opacity: 1;
+#speakers, #team {
+padding: 60px 0 30px 0;
 }
 
-
-/*--------------------------------------------------------------
-# Speakers, Register, Team Sections (Includes Speaker Image Sizing and Blurred Background)
---------------------------------------------------------------*/
-
-#speakers, #register, #team {
-  padding: 60px 0 30px 0;
+#speakers h2 strong, #team h2 strong {
+  font-weight: 700; /* Ensure strong tag makes text bold */
 }
 
 #speakers .speaker, #team .speaker {
-  position: relative; /* Needed for absolute pseudo-element */
-  overflow: hidden;
-  margin-bottom: 30px;
-  background: var(--color-background-section); /* Dark background */
-  border-radius: 8px;
-  /* box-shadow: 0 4px 15px var(--color-shadow-light); */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* border: 1px solid var(--color-border-light); Subtle border */
-}
-#speakers .speaker:hover, #team .speaker:hover {
-    transform: translateY(-5px);
-    /* box-shadow: 0 8px 20px var(--color-shadow-medium); */
+position: relative;
+overflow: hidden;
+margin-bottom: 15px; /* Space below image */
+/* background: var(--color-background-section); */ /* Optional background for the container */
+/* border-radius: 8px; */ /* Optional rounding */
 }
 
-/* Pseudo-element for the blurred background layer */
-#speakers .speaker::before,
-#team .speaker::before {
-    content: ''; /* Required for pseudo-elements */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-blurred-background-overlay); /*Apply the overlay color
-    /* filter: blur(...) applies the blur effect */
-    /* filter: blur(var(--color-blurred-intensity)); Apply the blur filter */
-    z-index: 0; /* Position behind the image and details */
-    pointer-events: none; /* Allow clicks to pass through */
-    transition: filter 0.3s ease; /* Optional: transition blur amount on hover */
-}
-/* Optional: subtle change to blur on hover */
-/* #speakers .speaker:hover::before,
-#team .speaker:hover::before {
-    filter: blur(calc(var(--color-blurred-intensity) * 0.8)); // Slightly less blur on hover
-} */
-
-
-/* Common size for main speaker images in #speakers and #team */
+/* --- Image Cropping and Sizing --- */
 #speakers .speaker img,
 #team .speaker img {
-    display: block;
-    width: var(--speaker-img-main-width);  /* Set main fixed width */
-    height: var(--speaker-img-main-height); /* Set main fixed height */
-    object-fit: cover; /* Crop image to cover the dimensions */
-    margin: 0 auto; /* Center the image horizontally */
-    border-radius: 8px 8px 0 0; /* Match speaker card border radius */
-    transition: transform 0.3s ease, filter 0.3s ease; /* Keep image transitions */
-    /* filter: grayscale(20%) brightness(1.1); Adjust filter for dark background */
-    position: relative; /* Needed for z-index to work */
-    z-index: 1; /* Position above the pseudo-element */
+  display: block; /* Ensure it's a block element */
+  width: var(--speaker-img-main-width); /* Defined fixed width */
+  height: var(--speaker-img-main-height); /* Defined fixed height */
+  object-fit: cover; /* Scale and CROP the image to cover dimensions */
+  object-position: center top; /* Crop focusing on top/center */
+  margin: 0 auto; /* Center the image block */
+  border-radius: 6px; /* Optional subtle rounding */
+  transition: transform 0.3s ease;
+  /* filter: grayscale(10%); Optional subtle desaturation */
 }
-
-/* Adjust size on smaller screens */
-@media (max-width: 767.98px) { /* Apply below small desktop / above extra small mobile */
-    #speakers .speaker img,
-    #team .speaker img {
-        width: 100%; /* Image fills the column width */
-        max-width: var(--speaker-img-main-width); /* But don't exceed the defined size */
-        height: auto; /* Let height adjust to maintain aspect ratio within column constraints */
-        margin: 0 auto 10px auto; /* Center and add space below on stacked layout */
-        border-radius: 8px; /* Adjust border radius if needed */
-    }
-}
-/* Even smaller screens, ensure image doesn't get too big if column is wide */
-@media (max-width: 575.98px) { /* For extra small screens */
-     #speakers .speaker img,
-     #team .speaker img {
-         max-width: 180px; /* Limit max width a bit more */
-         height: auto; /* Keep height auto */
-     }
+#speakers .speaker:hover img,
+#team .speaker:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
+  /* filter: grayscale(0%); */
 }
 
 
-#speakers .speaker .details, #team .speaker .details { /* Target details in these sections */
-  background: rgba(33, 33, 33, 0.9); /* Dark background overlay */
-  position: absolute;
-  left: 0;
-  bottom: -40px;
-  right: 0;
-  text-align: center;
-  padding: 10px;
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  border-top: 1px solid var(--color-border-light);
-  position: relative; /* Needed for z-index to work */
-  z-index: 1; /* Position above the pseudo-element */
-}
-#speakers .speaker:hover .details, #team .speaker:hover .details {
-    bottom: 0;
-}
-
-
-#speakers .speaker .details h3, #team .speaker .details h3 {
-  color: var(--color-text-dark); /* Light text */
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  font-family: var(--font-heading);
-}
-
-#speakers .speaker .details p, #team .speaker .details p {
-  color: var(--color-text-muted); /* Muted light text */
+/* Text below the speaker image */
+#speakers p, #team p {
+  margin-top: 10px; /* Space between image and text */
   font-size: 14px;
-  margin-bottom: 8px;
-  font-style: italic;
-}
-
-#speakers .speaker .details .social, #team .speaker .details .social {
-  height: 25px;
-  margin-top: 5px;
-}
-
-#speakers .speaker .details .social a, #team .speaker .details .social a {
-  color: var(--color-text-dark); /* Light text */
-  font-size: 16px;
-  margin: 0 5px;
-  transition: color 0.3s ease;
-}
-
-#speakers .speaker .details a:hover, #team .speaker .details a:hover {
-  color: var(--color-primary); /* Primary Red on hover */
-}
-
-#speakers-details {
-  padding: 60px 0;
-  background-color: var(--color-background-light); /* Dark background */
-}
-
-#speakers-details .details h2 {
-  color: var(--color-text-dark); /* Light text */
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-#speakers-details .details .social {
-  margin-bottom: 15px;
-}
-
-#speakers-details .details .social a {
-  background: var(--color-background-section); /* Darker background */
-  color: var(--color-primary); /* Primary Red icon color */
-  line-height: 1;
-  display: inline-block;
+  line-height: 1.4;
   text-align: center;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  padding-top: 9px;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 2px 5px var(--color-shadow-light);
-  border: 1px solid var(--color-border-light);
+}
+#speakers p a, #team p a {
+  font-weight: 600; /* Make name bold */
+  color: var(--color-text-dark);
+  display: block; /* Name on its own line */
+  margin-bottom: 2px;
+}
+#speakers p a:hover, #team p a:hover {
+  color: var(--color-primary);
 }
 
-#speakers-details .details a:hover {
-  background: var(--color-primary); /* Primary Red on hover */
-  color: var(--color-white); /* White on hover */
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px var(--color-shadow-medium);
+/* Responsive adjustments for speaker/team images */
+@media (max-width: 767px) {
+   #speakers .speaker img,
+   #team .speaker img {
+      /* Keep fixed size or allow responsive? Let's keep fixed for consistency */
+      /* width: 100%; */ /* Or make it fill column */
+      /* max-width: var(--speaker-img-main-width); */
+      /* height: auto; */
+   }
+   /* Center text below image on mobile */
+   #speakers .col-lg-8, #speakers .col-lg-4,
+   #team .col-lg-3, #team .col-md-4, #team .col-sm-6 {
+       text-align: center;
+   }
+   #speakers .col-lg-8.text-lg-left,
+   #speakers .col-lg-4.text-lg-left {
+      text-align: center !important; /* Override lg-left on small screens */
+   }
+   #speakers p, #team p {
+       margin-bottom: 30px; /* More space between people on mobile */
+   }
+
 }
 
-#speakers-details .details .social a i {
-  font-size: 18px;
+/* Specific adjustments for Invited Speakers layout */
+#speakers .col-lg-4 .row {
+  margin-bottom: 15px; /* Space between rows of speakers */
 }
 
-#speakers-details .details p {
-  color: var(--color-text-dark); /* Light text */
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-style: normal;
+
+/* Sponsor Images */
+.sponsor-img {
+ max-height: 60px; /* Control max height */
+ width: auto; /* Let width adjust */
+ max-width: 150px; /* Control max width */
+ margin: 10px 15px; /* Spacing around logo */
+ object-fit: contain; /* Scale down, don't crop logo */
+ /* Make logos visible on dark bg */
+ filter: brightness(0) invert(1) grayscale(100%) contrast(1000%);
+ opacity: 0.7;
+ transition: all 0.4s ease;
+ display: inline-block; /* Align logos inline */
+ vertical-align: middle;
 }
+.sponsor-img:hover {
+filter: none; /* Show original color on hover */
+opacity: 1;
+}
+/* Center sponsor logos if needed */
+/* .sponsors-container { text-align: center; } */
 
 
 /*--------------------------------------------------------------
@@ -1208,299 +1072,270 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 
 /*--------------------------------------------------------------
-# Venue Section (Assuming it uses section-with-bg structure)
+# Apply Now & Sponsorship Tables
 --------------------------------------------------------------*/
-
-#venue {
-  padding: 60px 0;
+#apply_now, #sponsorship {
+padding: 60px 0;
 }
 
-#venue .container-fluid {
-  margin-bottom: 20px;
+/* Button Styling */
+.buy-tickets { /* General button style (used in nav, can reuse here) */
+color: var(--color-white);
+background: var(--color-primary);
+padding: 8px 25px; /* Adjust padding */
+border-radius: 50px;
+border: 2px solid var(--color-primary);
+transition: all ease-in-out 0.3s;
+font-weight: 500;
+line-height: 1.5;
+font-size: 14px;
+text-transform: uppercase;
+display: inline-block; /* Make it inline-block */
+}
+.buy-tickets:hover {
+background: var(--color-accent);
+border-color: var(--color-accent);
+color: var(--color-white);
+transform: translateY(-2px);
 }
 
-#venue .venue-map iframe {
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
   width: 100%;
-  height: 450px;
-  min-height: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px var(--color-shadow-light);
   border: 1px solid var(--color-border-light);
+  margin-top: 20px;
+  margin-bottom: 30px; /* Add space below table */
+  box-shadow: 0 2px 10px var(--color-shadow-light);
+  background-color: var(--color-background-light); /* Dark background for table */
 }
 
-#venue .venue-info {
-  /* background: url("../img/venue-info-bg-dark.jpg") center center no-repeat; */ /* Use dark image */
-  /* background-size: cover; */
-  position: relative;
-  padding: 40px 20px;
-  color: var(--color-text-dark); /* Light text */
-  border-radius: 8px;
-  box-shadow: 0 4px 15px var(--color-shadow-light);
-   background-color: var(--color-background-light); /* Dark background */
-   border: 1px solid var(--color-border-light);
+/* Responsive Table Wrapper */
+.table-responsive-auto {
+display: block; /* Ensure it takes block behavior */
+width: 100%;
+overflow-x: auto; /* Add scrollbar only when needed */
+-webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+margin-bottom: 1rem; /* Consistent bottom margin */
 }
 
-#venue .venue-info:before {
-  /* content: ""; */
-  /* background: rgba(0, 0, 0, 0.7); */ /* Dark overlay */
-  /* position: absolute; */
-  /* bottom: 0; top: 0; left: 0; right: 0; border-radius: 8px; z-index: 1; */
+th, td {
+  text-align: left;
+  padding: 12px 15px; /* More padding */
+  border: 1px solid var(--color-border-light);
+  font-size: 15px;
+  color: var(--color-text-dark);
+  vertical-align: middle; /* Align content vertically */
 }
-#venue .venue-info .container { position: relative; z-index: 2; }
+
+th {
+  background-color: var(--color-background-section); /* Header background */
+  color: var(--color-white); /* Brighter header text */
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 13px;
+  white-space: nowrap; /* Prevent header text wrapping */
+}
+
+/* Centering specific columns if needed */
+#apply_now table td:nth-child(2), /* Fee */
+#apply_now table td:nth-child(3), /* GST */
+#apply_now table td:nth-child(4), /* Charges */
+#apply_now table td:nth-child(5), /* Total */
+#apply_now table th:nth-child(n+2):nth-child(-n+5) /* Headers for those columns */
+{
+text-align: center;
+}
+#sponsorship table td:nth-child(n+2):nth-child(-n+4), /* Amount, Talk, Registrations */
+#sponsorship table th:nth-child(n+2):nth-child(-n+4)
+{
+text-align: center;
+}
 
 
-#venue .venue-info h3 {
-  font-size: 28px;
+/* Eligibility/Benefits column */
+td:last-child {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* Bold Total */
+td b {
   font-weight: 700;
-  color: var(--color-text-dark); /* Light text */
-  margin-bottom: 15px;
+  color: var(--color-primary); /* Highlight total */
 }
 
-#venue .venue-info p {
-  color: var(--color-text-muted); /* Muted light text */
+/* Note Styling */
+.note-highlight {
+color: var(--color-accent); /* Use accent color */
+font-weight: 500; /* Less strong than bold */
+display: block; /* Make note its own block */
+margin-top: 15px;
+font-size: 14px;
+}
+.note-highlight br {
+  margin-bottom: 5px; /* Space between lines in note */
+}
+
+/*--------------------------------------------------------------
+# FAQ Section
+--------------------------------------------------------------*/
+#faq {
+padding: 60px 0;
+}
+
+#faq #faq-list {
+padding: 0;
+list-style: none;
+}
+
+#faq #faq-list li {
+border-bottom: 1px solid var(--color-border-light);
+margin-bottom: 15px;
+padding-bottom: 15px;
+}
+#faq #faq-list li:last-child {
+  border-bottom: none;
   margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+#faq #faq-list a {
+display: block;
+position: relative;
+font-family: var(--font-heading);
+font-size: 18px;
+line-height: 1.4;
+font-weight: 500;
+padding-right: 30px; /* Space for icon */
+cursor: pointer;
+color: var(--color-text-dark);
+transition: color 0.3s ease;
+}
+#faq #faq-list a:hover {
+  color: var(--color-primary);
+}
+
+
+#faq #faq-list i {
+font-size: 20px;
+position: absolute;
+right: 0;
+top: 1px; /* Adjust vertical alignment */
+transition: transform 0.3s ease;
+color: var(--color-text-muted);
+}
+
+#faq #faq-list .collapse {
+/* margin-top: 15px; */ /* Handled by padding below */
+}
+
+#faq #faq-list p {
+  padding: 15px 0 0 0; /* Padding top for spacing */
+  margin-bottom: 0;
+  color: var(--color-text-muted);
   font-size: 15px;
 }
 
-#venue .venue-gallery-container {
-  padding-right: 12px;
+#faq #faq-list a.collapsed {
+ /* Default state */
+}
+#faq #faq-list a.collapsed i::before {
+content: "\f055"; /* Font Awesome plus icon */
+}
+#faq #faq-list a:not(.collapsed) {
+ color: var(--color-primary); /* Active question color */
 }
 
-#venue .venue-gallery {
-  overflow: hidden;
-  border-right: none;
-  border-bottom: none;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px var(--color-shadow-light);
-  border: 1px solid var(--color-border-light);
+#faq #faq-list a:not(.collapsed) i {
+  color: var(--color-primary);
+}
+#faq #faq-list a:not(.collapsed) i::before {
+content: "\f056"; /* Font Awesome minus icon */
 }
 
-#venue .venue-gallery img {
-  transition: all ease-in-out 0.4s;
-   filter: grayscale(20%) brightness(1.1); /* Adjust filter for dark */
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+#contact {
+padding: 60px 0;
 }
 
-#venue .venue-gallery:hover img {
-  transform: scale(1.08);
-  filter: none;
+#contact .contact-info {
+margin-bottom: 30px;
+text-align: center;
 }
+
+#contact .contact-info i {
+font-size: 38px; /* Larger icons */
+display: inline-block;
+margin-bottom: 15px;
+color: var(--color-primary);
+}
+
+#contact .contact-info address,
+#contact .contact-info p {
+margin-bottom: 0;
+color: var(--color-text-dark);
+font-size: 14px;
+line-height: 1.6;
+}
+#contact .contact-info a{
+  color: var(--color-primary);
+}
+#contact .contact-info a:hover{
+  color: var(--color-white);
+}
+
+#contact .contact-info h3 {
+font-size: 18px;
+margin-bottom: 10px;
+font-weight: 600;
+text-transform: uppercase;
+color: var(--color-text-dark);
+font-family: var(--font-heading);
+}
+
+/* Add spacing between contact items on mobile */
+@media (max-width: 767px) {
+#contact .contact-address,
+#contact .contact-phone, /* Use consistent class naming if possible */
+#contact .contact-email {
+  margin-bottom: 30px;
+}
+}
+
+/* Contact Form Styling (if using the provided JS/PHP form) */
+/* #contact .form ... */
 
 
 /*--------------------------------------------------------------
-# Hotels Section (Assuming it uses section-with-bg structure)
+# Footer
 --------------------------------------------------------------*/
-
-#hotels {
-  padding: 60px 0;
+#footer {
+background: var(--color-background-light); /* Darkest background */
+padding: 30px 0;
+color: var(--color-text-muted);
+font-size: 14px;
+text-align: center;
+box-shadow: 0px -2px 15px var(--color-shadow-medium); /* Shadow top */
 }
 
-#hotels .hotel {
-  border: 1px solid var(--color-border-light);
-  background: var(--color-background-light); /* Dark background */
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4rem 15px var(--color-shadow-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+#footer .copyright {
+margin-bottom: 5px;
 }
 
-#hotels .hotel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px var(--color-shadow-medium);
+#footer .credits {
+font-size: 13px;
 }
-
-
-#hotels .hotel:hover .hotel-img img {
-  transform: scale(1.1);
+#footer .credits a {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
 }
-
-#hotels .hotel-img {
-  overflow: hidden;
-  margin-bottom: 15px;
-  border-radius: 8px 8px 0 0;
+#footer .credits a:hover {
+  color: var(--color-white);
 }
-
-#hotels .hotel-img img {
-  transition: 0.3s ease-in-out;
-   filter: grayscale(20%) brightness(1.1); /* Adjust filter */
-}
-#hotels .hotel:hover .hotel-img img {
-  filter: none;
-}
-
-
-#hotels h3 {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 5px;
-  padding: 0 20px;
-  color: var(--color-text-dark); /* Light text*/
-}
-
-
-
-.text-shadows {
-    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
-      9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
-    font-family: bungee, sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    /* font-size: calc(2rem + 5vw); */
-    text-align: center;
-    margin: 0;
-    color: var(--color-primary);
-    animation: shadows 1.2s ease-in infinite;
-    /* animation-timing-function: cubic-bezier(0.25,0.1,0.25,1) infinite; */
-    letter-spacing: 0.4rem;
-  }
-  
-  @keyframes shadows {
-    0% {
-      text-shadow: none;
-    }
-    /* 10% {
-      transform: translate(-3px, -3px);
-      text-shadow: 3px 3px 0 var(--color-secondary);
-    }
-    20% {
-      transform: translate(-6px, -6px);
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary);
-    }
-    30% {
-      transform: translate(-9px, -9px);
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
-    }
-    40% {
-      transform: translate(-12px, -12px);
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-        12px 12px 0 var(--color-quinary);
-    } */
-    /* 50% {
-      transform: translate(-12px, -12px);
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-        12px 12px 0 var(--color-quinary);
-    } */
-    50% {
-        transform: translate(-8px, -8px);
-        text-shadow: 2px 2px 0 var(--color-secondary),
-          4px 4px 0 var(--color-tertiary), 6px 6px var(--color-quaternary),
-          8px 8px 0 var(--color-quinary);
-      }
-    /* 60% {
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-        12px 12px 0 var(--color-quinary);
-    }
-    70% {
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
-    }
-    80% {
-      text-shadow: 3px 3px 0 var(--color-secondary),
-        6px 6px 0 var(--color-tertiary);
-    }
-    90% {
-      text-shadow: 3px 3px 0 var(--color-secondary);
-    } */
-    100% {
-      text-shadow: none;
-    }
-  }
-
-
-/* Custom Table Styles (integrated and styled for the new theme) */
-/* Applies to the table in the Apply Now section */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid var(--color-border-light);
-    margin-top: 20px;
-    box-shadow: 0 2px 10px var(--color-shadow-light);
-    background-color: var(--color-background-light);
-    caption-side: bottom; /* Optional: for table caption positioning */
-    }
-    
-    /* Add responsive wrapper for tables */
-    .table-responsive-auto {
-      overflow-x: auto; /* Add horizontal scroll if content overflows */
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
-      margin-bottom: 20px; /* Add space below the table */
-    }
-    
-    
-    th, td {
-    text-align: left;
-    padding: 12px;
-    border: 1px solid var(--color-border-light);
-    font-size: 15px;
-    color: var(--color-text-dark);
-    }
-    
-    th {
-      background-color: var(--color-background-light);
-      color: var(--color-text-dark);
-      font-weight: 600;
-      font-family: var(--font-heading);
-      text-transform: uppercase;
-      font-size: 14px;
-      vertical-align: middle; /* Vertically align header text */
-    }
-    
-    /* Style for inputs within generic table (if any) */
-    table input[type="number"] {
-      background: var(--color-white);
-      color: var(--color-text-dark);
-      border: 1px solid var(--color-border-light);
-      padding: 8px;
-      border-radius: 4px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
-      width: 70px; /* Adjust size as needed */
-      box-sizing: border-box;
-       transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    table input[type="number"]:focus {
-      border-color: var(--color-primary);
-      outline: none;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 6px rgba(76, 175, 80, 0.3);
-    }
-    
-    
-    /* Style for calculated cells in generic table (if any) */
-    table .item-total-cell, table #grand-total-cell {
-      background-color: var(--color-background-light);
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-    table tfoot th {
-       text-align: right;
-       background-color: var(--color-background-light);
-       color: var(--color-text-dark);
-    }
-    table tfoot td {
-       background-color: var(--color-white);
-       color: var(--color-primary);
-       font-size: 16px;
-       font-weight: 700;
-    }
-    /* Ensure text in Apply Now table is centered where specified in HTML */
-    #apply_now table td,
-    #apply_now table th {
-      text-align: center;
-    }
-    #apply_now table td:first-child { /* First column (Type) might need specific alignment */
-      text-align: left;
-    }
-    #apply_now table td:last-child { /* Last column (Eligibility) */
-      text-align: left;
-    }
-    
-    /* Style for the note text in Apply Now */
-    .note-highlight {
-      color: var(--color-accent); /* Use accent color */
-      font-weight: 600;
-    }
