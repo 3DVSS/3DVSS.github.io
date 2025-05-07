@@ -841,8 +841,18 @@ margin-bottom: 15px; /* Space below image */
   margin-top: 10px; /* Space between image and text */
   font-size: 14px;
   line-height: 1.4;
+  /* text-align: center; */
   text-align: center;
 }
+
+#speakers p2, #team p2 {
+  margin-top: 10px; /* Space between image and text */
+  font-size: 14px;
+  line-height: 1.4;
+  /* text-align: center; */
+  text-align: left;
+}
+
 #speakers p a, #team p a {
   font-weight: 600; /* Make name bold */
   color: var(--color-text-dark);
