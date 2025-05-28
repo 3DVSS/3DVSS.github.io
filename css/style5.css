@@ -169,6 +169,11 @@ color: var(--color-primary);
 font-weight: bold;
 }
 
+.text_highlight2 {
+  color: var(--color-quinary);
+  font-weight: bold;
+  }
+
 /* Section Header */
 .section-header {
 margin-bottom: 50px;
