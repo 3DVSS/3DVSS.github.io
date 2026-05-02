@@ -1354,3 +1354,14 @@ font-size: 13px;
 #footer .credits a:hover {
   color: var(--color-white);
 }
+
+@keyframes blink {
+     0%, 50%, 100% { opacity: 1; } 
+     25%, 75% { opacity: 0; }  
+}
+
+.blinking-text {
+    color: red;               
+    font-weight: bold;          
+    animation: blink 1s infinite; 
+}
